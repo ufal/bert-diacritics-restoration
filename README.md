@@ -1,6 +1,8 @@
 # Diacritics Restoration using BERT with Analysis on Czech language
 
-We propose a new architecture for diacritics restoration based on contextualized embed-dings, namely BERT, and we evaluate it on 12 languages with diacritics. Furthermore, we con-duct a detailed error analysis on Czech, a morphologically rich language with a high level ofdiacritization. Notably, we manually annotate all mispredictions, showing that roughly 44% ofthem are actually not errors, but either plausible variants (19%), or the system corrections oferroneous data (25%). Finally, we categorize the real errors in detail.
+This repository stores scripts for replicating experiments conducted in our [paper](https://ufal.mff.cuni.cz/pbml/116/art-naplava-straka-strakova.pdf).
+
+Abstract: We propose a new architecture for diacritics restoration based on contextualized embed-dings, namely BERT, and we evaluate it on 12 languages with diacritics. Furthermore, we con-duct a detailed error analysis on Czech, a morphologically rich language with a high level ofdiacritization. Notably, we manually annotate all mispredictions, showing that roughly 44% ofthem are actually not errors, but either plausible variants (19%), or the system corrections oferroneous data (25%). Finally, we categorize the real errors in detail.
 
 ## Requirements:
 
@@ -25,12 +27,26 @@ See ```run_predict.sh```.
 
 ## Best Predictions
 
-We release the best predictions of our model on dataset from https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-2607). The predictions are in [predictions](predictions)
+We release the best predictions of our model on dataset from https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-2607 in folder [predictions](predictions)
 
 ## Additional Czech Data
 
 We tested the Czech model in other domains. The testing data alongside binary evaluation masks and our predictions are in [other_domain_evaluation](other_domain_evaluation). 
 
-## Acknowledgements
+## Citation
 
-## References
+```
+@article{naplava-straka-strakova:2021,
+ journal = {The Prague Bulletin of Mathematical Linguistics},
+ title = {{Diacritics Restoration using BERT with Analysis on Czech language}},
+ author = {Jakub N\'{a}plava and Milan Straka and Jana Strakov\'{a}},
+ year = {2021},
+ month = {April},
+ volume = {116},
+ pages = {27--42},
+ doi = {10.14712/00326585.013},
+ issn = {0032-6585},
+ url = {https://ufal.mff.cuni.cz/pbml/116/art-naplava-straka-strakova.pdf}
+}
+
+```
