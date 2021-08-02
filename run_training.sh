@@ -36,20 +36,20 @@ mkdir -p $DATA_DIR
 
 # run training
 python run_diacritization.py \
- --data_dir $DATA_DIR \ 
+ --data_dir $DATA_DIR \
  --labels $LABELS \
- --model_name_or_path $BERT_MODEL \ 
+ --model_name_or_path $BERT_MODEL \
  --tokenizer_name $TOKENIZER_NAME \
  --output_dir $OUTPUT_DIR \
- --max_seq_length $MAX_LENGTH \ 
- --num_train_epochs $NUM_EPOCHS \ 
+ --max_seq_length $MAX_LENGTH \
+ --num_train_epochs $NUM_EPOCHS \
  --per_device_train_batch_size $BATCH_SIZE \
- --per_device_eval_batch_size 1 \ 
+ --per_device_eval_batch_size 1 \
  --gradient_accumulation_steps $GRAD_ACC_STEPS \
  --cache_dir $DATA_DIR \
- --save_steps $SAVE_STEPS \ 
- --seed $SEED \ 
- --do_train \ 
+ --save_steps $SAVE_STEPS \
+ --seed $SEED \
+ --do_train \
  --overwrite_output_dir \
  --input_train_file $INPUT_TRAIN_FILE \
  --target_train_file $TARGET_TRAIN_FILE \

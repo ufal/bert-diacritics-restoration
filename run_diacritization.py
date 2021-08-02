@@ -106,12 +106,6 @@ class DataTrainingArguments:
     overwrite_cache: bool = field(
         default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
     )
-    use_instructions_as_labels: bool = field(
-        default=False, metadata={"help": ""}
-    )
-    replace_with_copy_instruction: bool = field(
-        default=False, metadata={"help": "Use copy instruction whenever same subword as input should be outputted"}
-    )
 
     prediction_file_path: Optional[str] = field(
         default=None,
@@ -350,24 +344,9 @@ def main():
                     # logging.info(label)
                     if token == '<UNK>' or token == '[UNK]':
                         continue  # just copy source (do nothing)
-                    elif data_args.use_instructions_as_labels:
+                    else:
                         converted_subword = dia_instructions_to_text(token, label)
                         new_sentence[token_start:token_end] = list(converted_subword)
-                    else:
-                        if label != "<KEEP>" and label != '[KEEP]':
-                            # if not equal len, ignore
-                            if len(label) != len(token):
-                                continue
-
-                            # fix casing
-                            label_as_list = list(label)
-                            for label_char_i in range(len(label_as_list)):
-                                if label_as_list[label_char_i].isupper() and token[label_char_i].islower():
-                                    label_as_list[label_char_i] = label_as_list[label_char_i].lower()
-                                elif label_as_list[label_char_i].islower() and token[label_char_i].isupper():
-                                    label_as_list[label_char_i] = label_as_list[label_char_i].upper()
-                            new_sentence[token_start:token_end] = label_as_list
-                            # logging.info("".join(new_sentence))
 
                 new_sentence = "".join(new_sentence)
 
