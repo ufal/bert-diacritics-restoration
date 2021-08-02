@@ -12,10 +12,10 @@ The packages we used are listed in requirements.txt. We use Python 3.7.
 
 To train a model, follow these steps:
 
-1. obtain a dataset (dataset for 12 languages can be downloaded from https://hdl.handle.net/11234/1-2607)
+1. obtain a dataset (dataset for 12 languages can be downloaded from https://hdl.handle.net/11234/1-2607) and create parallel files with and without diacritics (for stripping diacritics, see [diacritization_stripping.py](https://github.com/ufal/bert-diacritics-restoration/blob/master/diacritization_stripping.py)).
 2. generate subword frequencies (these are later used for computing target instruction set)
 ```
-python generate_subword_frequencies.py input_file_without_diacritics.txt target_file_with_diacritics.txt
+python generate_subword_frequencies.py input_file_without_diacritics.txt target_file_with_diacritics.txt frequencies_out.txt
 ```
 3. train model
 
